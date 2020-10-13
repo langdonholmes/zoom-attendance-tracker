@@ -24,7 +24,7 @@ sectionselection = input()
 # Extract dates from filenames in format MONTH. # where MONTH is a four-character abbreviation.
 
 dates_recorded = []
-date = 'Sept. 29'
+date = "Choose a Date"
 
 # For the selection section, check .xlsx for a column matching each date
 # If no date found, call the attendance tracker function
@@ -32,7 +32,7 @@ date = 'Sept. 29'
 section = sections[sectionselection]
 
 # Reads files located in venv folder to Pandas as dataframes
-directory = ("C:/Users/Langdon/CSULB/Sarvenaz Hatami - Fall 2020 - Class Attendance/" + section)
+directory = ("Choose a directory" + section)
 attendance = pd.read_excel(directory + "/" + section + ".xlsx")
 
 #Regex Matching date format
