@@ -59,6 +59,9 @@ print(sessions_recorded)
 print()
 
 # Records attendance to dataframe.
+# Sometimes, students may log out and log back in
+# Currently only checks if ONE of their sessions is >= 30
+# (not the sum of both sessions)
 
 def recorder(match,ind,prettyname,zoomname):
     time = zoom.at[ind, "Total Duration (Minutes)"]
@@ -72,6 +75,10 @@ def recorder(match,ind,prettyname,zoomname):
 
 # Uses fuzzy matching to pair usernames with names on the roster
 # Asks for confirmation if the match ratio is less than 80
+# TO DO: check aliases.json first +
+# Save confirmed matches to aliases.json +
+# Allow manual pairing of poor matches
+# (e.g. "Samsung Galaxy Note 9")
 
 def tracker(section,date):
     zoom = pd.read_csv(directory + month + "/" + date + " - " + section + ".csv")
@@ -96,10 +103,14 @@ def tracker(section,date):
 
     print()
 
+# Writes to attendance sheet in xlsx format
+
     writer = pd.ExcelWriter(directory + section + ".xlsx")
     attendance.to_excel(writer, sheet_name='Sheet1',index=False)
     worksheet = writer.sheets['Sheet1']
     writer.save()
+
+# Run attendance tracker for all unrecorded Zoom reports in the month folder
 
 for date in sessions_recorded:
     if date not in attendance.columns:
