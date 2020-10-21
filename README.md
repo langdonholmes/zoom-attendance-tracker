@@ -5,7 +5,7 @@ Tracks attendance in a spreadsheet by extracting data from automatically generat
 
 
 To Do:
-1. Incorporate fuzzy matching using fuzzywuzzy package
-2. Improve output spreadsheet formatting (set column width)
-3. Remove all hardcoded paramters, possibly into .json files. Also move Alias lists to a .json dictionary.
-4. Use Tkinter to create a GUI
+- [x] Incorporate fuzzy matching using fuzzywuzzy package
+- [ ] Improve output spreadsheet formatting (set column width)
+- [ ] Remove all hardcoded paramters, possibly into .json files. Also move Alias lists to a .json dictionary.
+- [ ] Use Tkinter to create a GUI
