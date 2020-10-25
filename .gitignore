@@ -1,0 +1,4 @@
+# Ignores localized files
+*.log
+aliases.json
+attendancetracker.conf
